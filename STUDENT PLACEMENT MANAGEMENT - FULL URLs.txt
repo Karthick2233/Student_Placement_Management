@@ -1,0 +1,108 @@
+STUDENT PLACEMENT MANAGEMENT - FULL API URLS
+=============================================
+Base URL : http://localhost:8080
+Swagger  : http://localhost:8080/swagger-ui.html
+==============================================================================
+1. AUTH
+==============================================================================
+POST   http://localhost:8080/api/auth/register
+POST   http://localhost:8080/api/auth/login
+==============================================================================
+2. COMPANIES
+==============================================================================
+POST   http://localhost:8080/api/companies
+GET    http://localhost:8080/api/companies?page=0&size=10&sort=id,asc
+GET    http://localhost:8080/api/companies/search?keyword=info
+GET    http://localhost:8080/api/companies/1
+PUT    http://localhost:8080/api/companies/1
+PATCH  http://localhost:8080/api/companies/1
+PATCH  http://localhost:8080/api/companies/1/approve
+DELETE http://localhost:8080/api/companies/1
+==============================================================================
+3. JOB DRIVES
+==============================================================================
+POST   http://localhost:8080/api/job-drives
+GET    http://localhost:8080/api/job-drives?page=0&size=10
+GET    http://localhost:8080/api/job-drives/search?keyword=java&department=CSE
+GET    http://localhost:8080/api/job-drives/1
+PUT    http://localhost:8080/api/job-drives/1
+PATCH  http://localhost:8080/api/job-drives/1
+PATCH  http://localhost:8080/api/job-drives/1/publish
+PATCH  http://localhost:8080/api/job-drives/1/cancel
+GET    http://localhost:8080/api/job-drives/1/eligibility
+GET    http://localhost:8080/api/job-drives/1/report
+DELETE http://localhost:8080/api/job-drives/1
+==============================================================================
+4. STUDENTS
+==============================================================================
+POST   http://localhost:8080/api/students
+GET    http://localhost:8080/api/students?page=0&size=10&sort=cgpa,desc
+GET    http://localhost:8080/api/students/search?department=CSE&minCgpa=8&graduationYear=2026
+GET    http://localhost:8080/api/students/1
+GET    http://localhost:8080/api/students/1/history
+PUT    http://localhost:8080/api/students/1
+PATCH  http://localhost:8080/api/students/1
+DELETE http://localhost:8080/api/students/1
+==============================================================================
+5. RESUME UPLOAD AND DOWNLOAD
+==============================================================================
+POST   http://localhost:8080/api/students/1/resume
+GET    http://localhost:8080/api/students/1/resume
+DELETE http://localhost:8080/api/students/1/resume
+==============================================================================
+6. APPLICATIONS
+==============================================================================
+POST   http://localhost:8080/api/applications
+GET    http://localhost:8080/api/applications?driveId=1&status=APPLIED&page=0&size=10
+GET    http://localhost:8080/api/applications/mine?page=0&size=10
+GET    http://localhost:8080/api/applications/1
+PATCH  http://localhost:8080/api/applications/1/shortlist
+PATCH  http://localhost:8080/api/applications/1/status
+PATCH  http://localhost:8080/api/applications/1/cancel
+DELETE http://localhost:8080/api/applications/1
+==============================================================================
+7. INTERVIEWS (ADMIN, PLACEMENT_OFFICER, RECRUITER)
+==============================================================================
+POST   http://localhost:8080/api/interviews
+GET    http://localhost:8080/api/interviews?applicationId=1&result=SCHEDULED&page=0&size=10
+GET    http://localhost:8080/api/interviews/1
+GET    http://localhost:8080/api/applications/1/interviews
+PUT    http://localhost:8080/api/interviews/1
+PATCH  http://localhost:8080/api/interviews/1/result
+DELETE http://localhost:8080/api/interviews/1
+==============================================================================
+8. OFFERS
+==============================================================================
+POST   http://localhost:8080/api/offers
+GET    http://localhost:8080/api/offers?status=ISSUED&page=0&size=10
+GET    http://localhost:8080/api/offers/mine?page=0&size=10
+GET    http://localhost:8080/api/offers/1
+PUT    http://localhost:8080/api/offers/1
+PATCH  http://localhost:8080/api/offers/1/respond
+DELETE http://localhost:8080/api/offers/1
+==============================================================================
+9. STUDENT QUERY EXAMPLES (ADMIN, PLACEMENT_OFFICER)
+==============================================================================
+GET    http://localhost:8080/api/students/queries/jpql/top-by-department?department=CSE    
+GET    http://localhost:8080/api/students/queries/jpql/by-skill?skill=Java  
+GET    http://localhost:8080/api/students/queries/jpql/applied-to-drive/1  
+GET    http://localhost:8080/api/students/queries/jpql/department-stats 
+GET    http://localhost:8080/api/students/queries/native/min-cgpa?value=8.0 
+GET    http://localhost:8080/api/students/queries/native/without-applications
+GET    http://localhost:8080/api/students/queries/native/department-summary   
+GET    http://localhost:8080/api/students/queries/named/placed 
+GET    http://localhost:8080/api/students/queries/named/min-cgpa?value=8.0   
+GET    http://localhost:8080/api/students/queries/custom/search?department=CSE&minCgpa=8&graduationYear=2026&skill=Java   
+GET    http://localhost:8080/api/students/queries/custom/average-cgpa?department=CSE   
+
+==============================================================================
+10. ACTUATOR AND SWAGGER
+==============================================================================
+GET    http://localhost:8080/actuator/health        (public)
+GET    http://localhost:8080/actuator/info          (public)
+GET    http://localhost:8080/actuator/metrics       (ADMIN)
+GET    http://localhost:8080/actuator/caches        (ADMIN)
+GET    http://localhost:8080/actuator/scheduledtasks (ADMIN)
+GET    http://localhost:8080/swagger-ui.html        (public)
+GET    http://localhost:8080/v3/api-docs            (public)
+
