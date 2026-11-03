@@ -1,0 +1,15 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+
+placement:
+  jwt:
+    # Prod: JWT_SECRET environment variable is mandatory (Base64, at least 32 bytes).
+    secret: ${JWT_SECRET}
+
+logging:
+  level:
+    com.college.placement: INFO
+    org.springframework.security: WARN

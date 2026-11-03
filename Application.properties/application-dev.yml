@@ -1,0 +1,15 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+placement:
+  jwt:
+    # Dev only: this default is used when the JWT_SECRET environment variable is not set.
+    secret: ${JWT_SECRET:ptgLNg6hPwIJ96up4hDKI56zWJHXeLOhsZ3/1cMLgxs=}
+
+logging:
+  level:
+    com.college.placement: DEBUG
+    org.springframework.security: INFO
